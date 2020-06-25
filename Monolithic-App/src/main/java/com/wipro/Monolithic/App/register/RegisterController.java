@@ -3,6 +3,9 @@ package com.wipro.Monolithic.App.register;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,21 +33,36 @@ public class RegisterController {
 				+ " Registered Successfully <a href='http://localhost:8080/index.html'>Home to Login</a>"
 				+ "<body><html>";
 	}
-	
+
 	@GetMapping(value = "users/all")
 	@ResponseBody
-	public Map<String, User> getAllRegisteredUser(){
+	public Map<String, User> getAllRegisteredUser() {
 		return users;
 	}
-	
+
 	@GetMapping(value = "users/{userid}")
 	@ResponseBody
 	public User getUser(@PathVariable("userid") String userid) {
 		return users.get(userid);
 	}
-	
-	
-	
-	
+
+	@GetMapping(value = "users/login")
+	@ResponseBody
+	public String loginUser(@ModelAttribute("userid") String userid, @ModelAttribute("password") String password,
+			HttpServletRequest request) {
+		User uu = users.get(userid);
+		request.getSession().setAttribute("user", uu);
+
+		if (users.get(userid) != null) {
+			if (users.get(userid).getPassword().equals(password)) {
+				return "Trade";
+			} else {
+				return "PasswordError";
+			}
+		} else {
+			return "Sorry";
+		}
+
+	}
 
 }
