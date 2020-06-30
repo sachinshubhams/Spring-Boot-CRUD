@@ -35,7 +35,7 @@ public class TradeController {
 		Double price = companies.get(ticker);
 		Trade t = new Trade(ticker, price, qty);
 		double total = price * qty;
-		t.setTotal_cost(total);
+		t.setTotalcost(total);
 
 		trades.put(ticker, t);
 		user = (User) request.getSession().getAttribute("user");
@@ -43,9 +43,9 @@ public class TradeController {
 		double bal = user.getBalance() - total;
 		user.setBalance(bal);
 
-		return "<html><body bgcolor='coral'>Traded Successfully" + user.getUserid() + " Your balance now is:"
+		return "<html><body bgcolor='coral'>Traded Successfully " + user.getUserid() + " Your balance now is:"
 				+ user.getBalance() + "<br><a href='http://localhost:8080/index.html'>Exit</a><br>"
-				+ "<a href='http://localhost:8080/Trade.html'>Trade Again</a><br><body><html>";
+				+ "<a href='http://localhost:8080/users/login'>Trade Again</a><br><body><html>";
 	}
 
 	@GetMapping(value = "/trade/all")

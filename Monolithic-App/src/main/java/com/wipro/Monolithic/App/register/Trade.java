@@ -5,7 +5,7 @@ public class Trade {
 	private String ticker;
 	private double price;
 	private int qty;
-	private double total_cost;
+	private double totalcost;
 
 	public Trade() {
 
@@ -42,12 +42,12 @@ public class Trade {
 		this.qty = qty;
 	}
 
-	public double getTotal_cost() {
-		return total_cost;
+	public double getTotalcost() {
+		return totalcost;
 	}
 
-	public void setTotal_cost(double total_cost) {
-		this.total_cost = total_cost;
+	public void setTotalcost(double total_cost) {
+		this.totalcost = total_cost;
 	}
 
 }

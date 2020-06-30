@@ -23,7 +23,7 @@ public class RegisterController {
 		users.put("sachin", userModel);
 	}
 
-	@PostMapping(value = "/user/register")
+	@PostMapping(value = "/users/register")
 	@ResponseBody
 	public String registerUser(@ModelAttribute("userid") String userid, @ModelAttribute("password") String password,
 			@ModelAttribute("email") String email) {
@@ -46,8 +46,7 @@ public class RegisterController {
 		return users.get(userid);
 	}
 
-	@GetMapping(value = "users/login")
-	@ResponseBody
+	@PostMapping(value = "users/login")
 	public String loginUser(@ModelAttribute("userid") String userid, @ModelAttribute("password") String password,
 			HttpServletRequest request) {
 		User uu = users.get(userid);
