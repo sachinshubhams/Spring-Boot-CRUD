@@ -11,12 +11,11 @@ public class Trade {
 
 	}
 
-	public Trade(String ticker, double price, int qty, double total_cost) {
+	public Trade(String ticker, double price, int qty) {
 		super();
 		this.ticker = ticker;
 		this.price = price;
 		this.qty = qty;
-		this.total_cost = total_cost;
 	}
 
 	public String getTicker() {

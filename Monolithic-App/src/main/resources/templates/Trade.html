@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://thymeleaf.org">
+<head>
+<title>Trade Page</title>
+</head>
+<body border='1'>
+	<tr>
+		<th>TICKER</th>
+		<th>PRICE</th>
+	</tr>
+	<tr>
+		<th>WIPRO</th>
+		<th>298.45</th>
+	</tr>
+	<tr>
+		<th>INFY</th>
+		<th>998.45</th>
+	</tr>
+	<tr>
+		<th>TCS</th>
+		<th>2298.45</th>
+	</tr>
+	<tr>
+		<th>TECHM</th>
+		<th>498.45</th>
+	</tr>
+
+	<form name="trade" action="http://localhost:8080/trade/do"
+		method="post">
+		<h1>Stock Trading</h1>
+		<table border='1'>
+			<tr>
+				<td>Ticker</td>
+				<td><input type="text" name="ticker" id="ticker" /></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><input type="number" name="qty" id="qty" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
